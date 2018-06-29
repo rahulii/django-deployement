@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "userapp/base.html" %}
+{% load staticfiles %}
+{% block body_block%}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<div class="jumbotron">
+  {% if registered %}
+    <h1>Thank You for Registering!</h1>
+    {% else %}
+    <h1>Register Here!</h1>
+    <h3>Fill Out The form:</h3>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ user_form.as_p }}
+      {{ profile_form.as_p }}
+      <input type="submit" value="Register">
+
+  {% endif %}
+</div>
+
+{% endblock %}
+</form>
